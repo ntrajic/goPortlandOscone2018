@@ -35,6 +35,8 @@ func TestMatch(t *testing.T) {
 	}{		{"BLACK", "BLACK CHESS KING", true},  
 			{"WHITE", "BLACK CHESS KING", false}, 
 			{"black", "BLACK CHESS KING", true},
+			{"chess black", "BLACK CHESS KING", true},
+			
 	}
 
 	for _, tc := range testCases {
