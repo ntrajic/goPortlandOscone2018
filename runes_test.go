@@ -5,9 +5,6 @@ import (
 	"testing"
 	"strings"
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
-	"github.com/stretchr/testify/http"
-
 )
 
 
@@ -75,10 +72,11 @@ func TestSelect(t *testing.T){
 	data := strings.NewReader(sample)
 	// When
 	got := Select(data, query)
-	// Then ......  results
-	want := []CodeName {            
-		{ "0041", "LATIN CAPITAL LETTER A"},
-		{ "0042", "LATIN CAPITAL LETTER B"},
+	// Then ......  results  
+	want := []CodeName { 
+		{"0040", "COMMERCIAL AT"},       
+		{"0041", "LATIN CAPITAL LETTER A"},
+		{"0042", "LATIN CAPITAL LETTER B"},
 	}
 	assert.Equal(t, want, got)
 }

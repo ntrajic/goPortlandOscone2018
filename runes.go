@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bufio"
+	"io"
 	"fmt"
 	"strings"
 )
@@ -26,4 +28,21 @@ func Match(query string, name string) bool {
 		}
 	}
 	return true
+}
+
+type CodeName struct {
+	Code string
+	Name string
+}
+
+func Select (data io.Reader, query string) []CodeName {
+	scanner := bufio.NewScanner(data)
+	result := []CodeName{}
+	for scanner.Scan() {
+		code, name := Parse(scanner.Text())
+		if Match(query, name) {
+			result = append(result, CodeName{code, name})
+		}
+	}
+	return result
 }
