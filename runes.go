@@ -1,12 +1,16 @@
 package main
 
-import ("fmt")
-import ("strings")
+import (
+	"fmt"
+	"strings"
+)
+
 
 func main() {
 	fmt.Println("Please provide one or more words to search.")
 }
 
-func Parse(line string) string {
-	return strings.Split(line, ";")[0]
+func Parse(line string) (string, string) {
+	a := strings.Split(line, ";")
+	return a[0], a[1]
 }

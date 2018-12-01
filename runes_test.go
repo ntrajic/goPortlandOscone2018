@@ -12,11 +12,15 @@ func TestParse(t *testing.T) {
 	// Given
 	const line= "0041;LATIN CAPITAL LETTER A;Lu;0;L;;;;;N;;;;0061;"
 	// When
-	got := Parse(line)
+	gotCode, gotName := Parse(line)
 	// Then
-	want := "0041"
-	if want != got {
-		t.Errorf("got: %v, want: %v", got, want)
+	wantCode := "0041"
+	if wantCode != gotCode {
+		t.Errorf("got: %v, want: %v", gotCode, wantCode)
+	}
+	wantName := "LATIN CAPITAL LETTER A"
+	if wantName != gotName {
+		t.Errorf("got: %v, want: %v", gotName, wantName)
 	}
 
 
