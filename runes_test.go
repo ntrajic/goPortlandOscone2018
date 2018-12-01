@@ -3,7 +3,10 @@ package main
 import (
 	"fmt"
 	"testing"
+	"strings"
+	"github.com/stretchr/testify/assert"
 )
+
 
 func Example () {
 	main()
@@ -37,6 +40,7 @@ func TestMatch(t *testing.T) {
 			{"black", "BLACK CHESS KING", true},
 			{"chess black", "BLACK CHESS KING", true},
 			{"", "BLACK CHESS KING", false},
+			{"BLACK CAT", "BLACK CHESS KING", false},
 	}
 
 	for _, tc := range testCases {
@@ -53,4 +57,25 @@ func TestMatch(t *testing.T) {
 																}
 															})
 	}
+}
+
+const sample = `003D;EQUALS SIGN;Sm;0;ON;;;;;N;;;;;
+003E;GREATER-THAN SIGN;Sm;0;ON;;;;;Y;;;;;
+003F;QUESTION MARK;Po;0;ON;;;;;N;;;;;
+0040;COMMERCIAL AT;Po;0;ON;;;;;N;;;;;
+0041;LATIN CAPITAL LETTER A;Lu;0;L;;;;;N;;;;0061;
+0042;LATIN CAPITAL LETTER B;Lu;0;L;;;;;N;;;;0062;
+`
+func TestSelect(t *testing.T){
+	// Given
+	query := "LETTER"
+	data := strings.NewReader(sample)
+	// When
+	got := Select(data, query)
+	// Then ......  results
+	want := []CodeName {            
+		{ "0041", "LATIN CAPITAL LETTER A"},
+		{ "0042", "LATIN CAPITAL LETTER B"},
+	}
+	assert.Equal(t, want, got)
 }
