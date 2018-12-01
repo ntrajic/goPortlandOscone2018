@@ -1,3 +1,10 @@
+// Automated tests for runes.go program, 
+// for which test cases were specified first, 
+// stetp by step in TDD methodology.
+// Test can be executed within Visual Code,
+// either from the links within the file, or
+// from the outside test menu, or 
+// from CLI terminal window: go test
 package main
 
 import (

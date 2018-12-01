@@ -1,3 +1,4 @@
+// Step by step TDD of a CLI scanner for target words in a file.
 package main
 
 import (
