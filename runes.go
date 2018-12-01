@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"strconv"
 	"bufio"
 	"io"
@@ -10,7 +11,21 @@ import (
 
 
 func main() {
-	fmt.Println("Please provide one or more words to search.")
+	if len(os.Args) < 2 {
+		fmt.Println("Please provide one or more words to search.")
+		return
+	}
+	query := strings.Join(os.Args[1:], " ")
+	data, err := os.Open("UnicodeData.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer func() {data.Close()} ()
+
+	for _, result := range Select(data, query) {
+		char := StringToRune(result.Code)
+		fmt.Printf("U+%v\t%c\t%v\n", result.Code, char, result.Name)
+	}
 }
 
 func Parse(line string) (string, string) {
