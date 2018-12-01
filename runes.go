@@ -16,5 +16,11 @@ func Parse(line string) (string, string) {
 }
 
 func Match(query string, name string) bool {
-	return strings.Contains(name, strings.ToUpper(query))
+	queryTerms := strings.Split(strings.ToUpper(query),"")
+	for _, queryTerm := range queryTerms {
+		if !strings.Contains(name,queryTerm) {
+			return false
+		}
+	}
+	return true
 }
