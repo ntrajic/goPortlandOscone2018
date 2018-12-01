@@ -1,6 +1,6 @@
 package main
 
-import "testing"
+import "testing" // to kinda have a type we use in TestParse input
 
 func Example () {
 	main()
