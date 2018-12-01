@@ -32,7 +32,9 @@ func TestMatch(t *testing.T) {
 		query string
 		name string
 		want bool
-	}{		{"BLACK", "BLACK CHESS KING", true},   	}
+	}{		{"BLACK", "BLACK CHESS KING", true},  
+			{"WHITE", "BLACK CHESS KING", false}, 
+	}
 
 	for _, tc := range testCases {
 		t.Run(fmt.Sprintf("%v in %v", tc.query, tc.name),   func(t *testing.T) {
