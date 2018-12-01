@@ -16,5 +16,5 @@ func Parse(line string) (string, string) {
 }
 
 func Match(query string, name string) bool {
-	return false
+	return strings.Contains(name, query)
 }
