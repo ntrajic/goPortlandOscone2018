@@ -10,7 +10,7 @@ func Example () {
 
 func TestParse(t *testing.T) {
 	// Given
-	const line= "0041;LATIN CAPITAL LETTER A;Lu;0;L;;;;;N;;;;0061;"
+	const line= "0041;LATIN CAPITAL LETTER Ak;Lu;0;L;;;;;N;;;;0061;"
 	// When
 	gotCode, gotName := Parse(line)
 	// Then
