@@ -14,3 +14,7 @@ func Parse(line string) (string, string) {
 	a := strings.Split(line, ";")
 	return a[0], a[1]
 }
+
+func Match(query string, name string) bool {
+	return false
+}

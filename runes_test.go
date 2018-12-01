@@ -42,7 +42,7 @@ func TestMatch(t *testing.T) {
 																name := tc.name
 																
 																// When
-																got := match(query, name)
+																got := Match(query, name)
 																if got != tc.want {
 																	t.Errorf("got %v; want %v", got, tc.want)
 																}
