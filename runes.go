@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strconv"
 	"bufio"
 	"io"
 	"fmt"
@@ -45,4 +46,12 @@ func Select (data io.Reader, query string) []CodeName {
 		}
 	}
 	return result
+}
+
+func StringToRune(strHex string) rune {
+	code, err := strconv.ParseInt(strHex, 16, 32)
+	if err != nil {	
+		panic(err)
+	}
+	return rune(code)
 }
