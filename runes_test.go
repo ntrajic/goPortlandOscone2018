@@ -80,3 +80,13 @@ func TestSelect(t *testing.T){
 	}
 	assert.Equal(t, want, got)
 }
+
+// Rune is a symbol, in particular dec code 0041 is symbol 'A'
+func TestStringToRune(t *testing.T){
+	// Given
+	code := "0041"
+	// When
+	got := StringToRune(code)
+	// Then
+	assert.Equal(t, 'A', got)
+}
