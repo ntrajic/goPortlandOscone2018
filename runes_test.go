@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"fmt"
 	"testing"
 	"strings"
@@ -8,11 +9,27 @@ import (
 )
 
 
-func Example () {
+func Example_chess_black() {
+	savedArgs := os.Args
+	defer func() { os.Args = savedArgs } ()
+	os.Args = []string{"", "chess black"}
 	main()
+	// got: Please provide provide one or more words to search?
+
+	// Wanted Output:
+	// U+265A Symb1 BLACK CHESS KING
+	// U+265B Symb2 BLACK CHESS QUEEN
+	// U+265C Symb3 BLACK CHESS ROOT
+	// U+265D Symb4 BLACK CHESS BISHOP
+	// U+265E Symb5 BLACK CHESS KNIGHT
+	// U+265F SYmb6 BLACK CHESS PAWN
+}
+
+//func Example () {
+//	main()
 	// Oputput:
 	// Please provide one or more words to search.
-}
+//}
 
 func TestParse(t *testing.T) {
 	// Given
